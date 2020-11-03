@@ -6,7 +6,7 @@
 
 > Author:   Mengjie Xu
 >
-> Advisor:   Ruodan Lu   Liang Guo
+> Advisor:  Liang Guo   Ruodan Lu
 
 **"Point Cloud"**, the protagonist of this document. We will focus on this concept in the next explanation. Regardless of the word "cloud" in its name, it has nothing to do with clouds in the sky, nor is it the current "cloud platform" or "cloud" in "cloud computing". So what is the learning background of the point cloud? Let us take a look at the following learning introduction!
 
