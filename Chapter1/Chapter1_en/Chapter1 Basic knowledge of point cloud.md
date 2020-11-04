@@ -22,7 +22,7 @@ Our world consists of various substances, ranging from microscopic atoms and mol
 
 It can be said that **"Everything is Point Cloud"** —— the geometric form of everything can be abstracted as a point cloud representation. There is no essential difference between the point cloud and 2D images. Both of them are descriptions of the real world.
 
-The 2D images we see are made up of pixels, and pixels are numbers. Therefore, the nature of the images is numbers. We can get pixels via Converting light into a 2-dimensional array. Nevertheless, the pixel itself is just some numbers without practical meanings. The difference between taking a picture with a camera and observing the world by human eyes is that the former one only gets pixels, while the latter one has an understanding of the scene.
+The 2D images we see are made up of pixels, and pixels are numbers. Therefore, the nature of the images is numbers. We can get pixels via converting light into a 2-dimensional array. Nevertheless, the pixel itself is just some numbers without practical meanings. The difference between taking a picture with a camera and observing the world by human eyes is that the former one only gets pixels, while the latter one has an understanding of the scene.
 
 As Fig.1 shown below, we get a 2D color pixel picture. What is stored in this picture is some numbers. Each pixel grid has three channels (Color Channels), and each channel has a corresponding value. For us, humans, we can quickly know that this picture is about a toucan standing on a branch. Moreover, We can point out where is the toucan, where is the branch and where is the background.
 
