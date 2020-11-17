@@ -18,9 +18,9 @@
 This tutorial is available in English and Chinese, with suffixes _en and _zh respectively.
 
 # Point Cloud Tutorial
-> Author: Xu Mengjie Shandong University mengjie.xu@mail.sdu.edu.cn or 598833571@qq.com
+> Author: Mengjie Xu Shandong University mengjie.xu@mail.sdu.edu.cn or 598833571@qq.com
 
-> Advisor: Guo Liang Shandong University Lu Ruodan University of Cambridge
+> Advisor: Liang Guo Shandong University Ruodan Lu University of Cambridge
 
 Introduction: This book is for point cloud beginners. It mainly covers the basic knowledge of point cloud, point cloud software operations (CloudCompare and MeshLab), interpretation of different file formats of the point cloud, PCL(Point Cloud Library) algorithm and other algorithm supplement (clustering, object detection and Feature processing). This work mainly refers to the 3D point cloud course of Shenlanxueyuan, the official information of the PCL and the actual operation and summary of the author. The author hopes to be able to help learners to have access to the point cloud. 
 
