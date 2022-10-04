@@ -20,7 +20,7 @@ When many objects in one picture need to be detected, it is the ***multi-object 
 
 Above are the object detections with 2D pictures. There are also object detections in 3D space. However, the detection box changes from a rectangle to a cuboid, as the color boxes in Fig 7.2:
 
-![image-20200923112035897](pics\2.png)
+![image-20200923112035897](pics/2.png)
 
 *Fig.7.2:   Object detection in 3D space[^1]*
 
@@ -30,7 +30,7 @@ Above are the object detections with 2D pictures. There are also object detectio
 
 The application of object detection is extensive. Such as Industrial production quality inspection, Smart precision medicine, and factory safety protection, and so on. (see in Fig.7.3)
 
-![image-20201021162708313](pics\3.png)
+![image-20201021162708313](pics/3.png)
 
 *Fig.7.3:   The applications of object detection[^2]*
 
@@ -38,13 +38,13 @@ Now we learn it through several examples.
 
 Commodity detection is usually used in the auto-retail field. As shown in Fig.7.4, the names and scores of detection are appearing in the specific boxes:
 
-<img src="pics\28.png" alt="image-20200923101830984" style="zoom:47%;" />
+<img src="pics/28.png" alt="image-20200923101830984" style="zoom:47%;" />
 
 *Fig.7.4:   Commodity detection[^2]*
 
 Road traffic detection aims at detecting unnormal situations on the road and adjusting traffic signals. It can also plan routes automatically to realize the consistency between vehicles and roads, as shown in Fig.7.5.
 
-![](pics\4.jpeg)
+![](pics/4.jpeg)
 
 *Fig.7.5:   Road traffic detection[^3]*
 
@@ -54,7 +54,7 @@ Road traffic detection aims at detecting unnormal situations on the road and adj
 
 We can use traditional methods such as combining plan fitting, clustering, and classification to detect objects. Apart from this, the neural network in deep learning can also be used to accomplish this goal. First, we overview the development history of object detection algorithms: 
 
-![image-20200923104008480](pics\5.png)
+![image-20200923104008480](pics/5.png)
 
 *Fig.7.6:   the development history of object detection algorithms[^4]*
 
@@ -66,7 +66,7 @@ In Fig.7.6, we can see that deep learning was introduced in object detection in 
 
 The following figure is about the problems and difficulties in object detection currently.
 
-<img src="pics\6.png" alt="image-20201021171423205" style="zoom:47%;" />
+<img src="pics/6.png" alt="image-20201021171423205" style="zoom:47%;" />
 
 *Fig.7.7:   The difficulties in object detection*
 
@@ -92,7 +92,7 @@ There are supposed to have consistent indicators to judge the results of object 
 
 To judge the precision of object detection, we usually use two Bounding Boxes (see in Chapter 2) —— Ground Truth Bounding Box and Predicted Bounding Box, the former is the real box while the later is the box predicted by algorithms. In order to get a degree of accuracy, we need to compare these two Bounding Boxes. When Predicted Bounding Box is closer to Ground Truth Bounding Box, that is, the area of their overlap is bigger, then the detection result is better.
 
-<img src="pics\7.png" alt="image-20200923151511577" style="zoom:47%;" />
+<img src="pics/7.png" alt="image-20200923151511577" style="zoom:47%;" />
 
 *Fig.7.1.1:   Ground Truth Bounding Box and Predicted Bounding Box*
 
@@ -100,7 +100,7 @@ To judge the precision of object detection, we usually use two Bounding Boxes (s
 
 IoU is the ratio of the area of the intersection of two bounding boxes (in the field of object detection, one is Ground Truth Bounding Box and the other is Predicted Bounding Box) and the area of the union of the two bounding boxes, which reflects how closely the Predicted Bounding Box to Ground Truth Bounding Box, that is, whether the result is matching, as shown in Fig.7.1.2:
 
-<img src="pics\8.png" alt="image-20201022093900494" style="zoom:47%;" />
+<img src="pics/8.png" alt="image-20201022093900494" style="zoom:47%;" />
 
 *Fig.7.1.2:   IoU*
 
@@ -112,7 +112,7 @@ TP (True positives), FP (False positives), TN (True negatives), and FN (False ne
 
 Take the detection of people in the scene as an example, objects in green boxes are people, and objects in green boxes are other detected objects:
 
-<img src="pics\9.png" alt="image-20200928205546180" style="zoom:47%;" />
+<img src="pics/9.png" alt="image-20200928205546180" style="zoom:47%;" />
 
 *Fig.7.1.3:   2D Object detection[^5]*
 
@@ -125,7 +125,7 @@ There are labels for each pixel in images, such as "people" is labelled in each 
 
 As shown in Fig.7.1.4:
 
-<img src="pics\10.png" alt="image-20200928204524777" style="zoom:60%;" />
+<img src="pics/10.png" alt="image-20200928204524777" style="zoom:60%;" />
 
 *Fig.7.1.4:   TP, FP, TN, FN[^6]*
 
@@ -162,7 +162,7 @@ Steps to calculate AP:
 - step6: Repeat step2-4, increasing the threshold of confidence. Finally, we will get the P-R curve;
 - step7: Calculate the area of the enclosed space of the P-R curve and the coordinate system, that is the AP. As shown in Fig.7.1.5, the area of purple is 0.88 so that the AP is 0.88.
 
-<img src="pics\11.png" alt="image-20200923162254321" style="zoom:39%;" />
+<img src="pics/11.png" alt="image-20200923162254321" style="zoom:39%;" />
 
 *Fig.7.1.5:   P-R curve and AP[^7]*
 
@@ -192,7 +192,7 @@ After understanding the judgment indicators and related concepts, let us take a 
 
 Fig.7.1.6 is the idea of RCNN:
 
-![image-20201022110356568](pics\12.png)
+![image-20201022110356568](pics/12.png)
 
 *Fig.7.1.6:   RCNN*
 
@@ -202,7 +202,7 @@ RCNN has an obvious problem, that is each adjusted proposal will be put in a CNN
 
 Fast RCNN saves more time than RCNN. Fig.7.1.7 is the idea of Fast RCNN:
 
-![image-20201022111430025](pics\13.png)
+![image-20201022111430025](pics/13.png)
 
 *Fig.7.1.7:   Fast RCNN*
 
@@ -212,7 +212,7 @@ At the beginning of Fast RCNN, there is a CNN for the whole image. Then we extra
 
 Now let us focus on the calculation principle of ROI pooling:
 
-![image-20201022113305062](pics\14.png)
+![image-20201022113305062](pics/14.png)
 
 *Fig.7.1.8:   ROI pooling[^8]*
 
@@ -220,7 +220,7 @@ In the above ROI pooling process, the first red frame position we get is based o
 
 Fig.7.1.9 is the comparison between RCNN and Fast RCNN, including training time and testing time. As the name shows, Fast RCNN is faster than RCNN.
 
-![image-20200924094647253](pics\15.png)
+![image-20200924094647253](pics/15.png)
 
 *Fig.7.1.9:   The comparison among different algorithms 1[^9]*
 
@@ -230,7 +230,7 @@ The blue part in the Test time table represents the traditional Regional proposa
 
 According to the time-consuming problem in the RCNN series, Faster RCNN uses Region Proposal Network (RPN) to extract regional proposals (mainly based on anchor, MLP, Classification, and Registration. Classification is a binary type: the box includes objects or not). The following figure shows the process of Faster RCNN:
 
-![image-20201023103551036](pics\16.png)
+![image-20201023103551036](pics/16.png)
 
 *Fig.7.1.10:   Faster RCNN*
 
@@ -238,7 +238,7 @@ Similar to Fast RCNN, there is a CNN for the whole image firstly. Then we can ge
 
 Fig.7.11 is the comparison of time among different algorithms. Faster RCNN improves the time significantly, which is only 0.2s, while R-CNN needs 49s, SPP-Net needs 4.3s, and Fast RCNN needs 2.3s.
 
-<img src="pics\17.png" alt="image-20200924101355425" style="zoom:39%;" />
+<img src="pics/17.png" alt="image-20200924101355425" style="zoom:39%;" />
 
 *Fig.7.1.11:   The comparison among different algorithms 2[^9]*
 
@@ -246,7 +246,7 @@ Fig.7.11 is the comparison of time among different algorithms. Faster RCNN impro
 
 Furthermore, Mask RCNN was produced. This network mainly uses ROI Align to improve the accuracy problems in ROI pooling. At the same time, it also trains the object detection model and the instance segmentation. Fig.7.1.12 is the performance of Mask RCNN:
 
-![image-20200924102416632](pics\18.png)
+![image-20200924102416632](pics/18.png)
 
 *Fig.7.1.12:   Mask RCNN[^10]*
 
@@ -259,7 +259,7 @@ It can be seen that Mask RCNN not only performs well in classification but also 
 
 So far, we have understood the four powerful algorithms of the RCNN family: RCNN, Fast RCNN, Faster RCNN, and Mask RCNN. Let us compare their respective vital steps:
 
-![image-20201023105805259](pics\19.png)
+![image-20201023105805259](pics/19.png)
 
 *Fig.7.1.13:   RCNN series*
 
@@ -273,7 +273,7 @@ Compared with Two-stage, One-stage does not have a series of related operations 
 
 SSD (Single Shot MultiBox Detector) shows that it is a One-stage algorithm through its name.
 
-![image-20200925084659346](pics\20.png)
+![image-20200925084659346](pics/20.png)
 
 *Fig.7.1.14:   SSD[^11]*
 
@@ -302,7 +302,7 @@ In this section, we will introduce VoxelNet, PointPillars, PointRCNN, and PointP
 
 VoxelNet is based on VoxelGrid. Fig.7.2.1 is the process of VoxelNet:
 
-![image-20200924142209330](pics\21.png)
+![image-20200924142209330](pics/21.png)
 
 *Fig.7.2.1:   VoxelNet[^12]*
 
@@ -316,7 +316,7 @@ However, for each of these Voxels, the VFE is run once, and the amount of calcul
 
 Run VFE only in useful Voxel, not useless Voxel. As shown below:
 
-<img src="pics\22.png" alt="image-20200924160603914" style="zoom:60%;" />
+<img src="pics/22.png" alt="image-20200924160603914" style="zoom:60%;" />
 
 *Fig.7.2.2:   Process Voxels[^12]*
 
@@ -340,7 +340,7 @@ Thus, the number of points in Voxel Input Feature Buffer reduces to K × T × 7 
 
 > NB: Only RPN is needed here, and subsequent classification networks are no longer needed because a VoxelNet only processes one category. We only need to know whether it is detected. Once detected, we know its category.
 
-![image-20200924170551799](pics\23.png)
+![image-20200924170551799](pics/23.png)
 
 *Fig.7.2.3:   RPN[^12]*
 
@@ -352,7 +352,7 @@ As shown in Fig.7.2.3, we input a Feature map firstly. Then we can get the Proba
 
 PointPillars is a simpler detection algorithm than VoxelNet. As shown in Fig.7.2.4:
 
-![image-20200924200900113](pics\24.png)
+![image-20200924200900113](pics/24.png)
 
 *Fig.7.2.4:   PointPillars[^1]*
 
@@ -370,7 +370,7 @@ The steps of PointPillars are divided into three parts: Pillar Feature Net, Back
 
 PointRCNN is a type of network based on Point-wise, which performs detection on the native point cloud. The specific process is as follows:
 
-![image-20201023145154943](pics\25.png)
+![image-20201023145154943](pics/25.png)
 
 *Fig.7.2.5:   PointRCNN[^14]*
 
@@ -386,7 +386,7 @@ We define PointNet++ and RPN as the first stage of PointRCNN.
 
 The RPN here is different from that in the image processing network, as shown in Fig.7.2.6:
 
-![image-20200925142053530](pics\26.png)
+![image-20200925142053530](pics/26.png)
 
 *Fig.7.2.6:   RPN in 2D (a) and 3D (b)[^14][^15]*
 
@@ -413,7 +413,7 @@ Put this comprehensive information into the MLP, and connect it with the feature
 
 Finally, a brief introduction to a detection algorithm that combines point cloud and image —— PointPainting, the process is as follows:
 
-![image-20200925151905850](pics\27.png)
+![image-20200925151905850](pics/27.png)
 
 *Fig.7.2.7:   PointPainting[^16]*
 
