@@ -16,7 +16,7 @@ In this Chapter, we will jump out of the PCL range, start with the 2D image Feat
 
 Feature points are points that contain feature information. They are usually called interest points and Keypoints in research, as shown in the figure below:
 
-<img src="pics\1.png" alt="image-20200925220433040" style="zoom:47%;" />
+<img src="pics/1.png" alt="image-20200925220433040" style="zoom:47%;" />
 
 *Fig.8.1.1:   Feature points[^1][^2]*
 
@@ -30,7 +30,7 @@ Describing Feature points is often based on the Feature points we extracted in t
 
 Fig.8.1.2 is the histogram of the description based on the Feature points in the image:
 
-<img src="pics\2.png" alt="image-20200926081341145" style="zoom:39%;" />
+<img src="pics/2.png" alt="image-20200926081341145" style="zoom:39%;" />
 
 *Fig.8.1.2:   The description of Feature points[^3]*
 
@@ -40,7 +40,7 @@ Fig.8.1.2 is the histogram of the description based on the Feature points in the
 
 After obtaining the description of the Feature point, we can match or register the point cloud by comparing the similarity between the two features. As shown below:
 
-<img src="pics\3.png" alt="image-20201024112213381" style="zoom:47%;" />
+<img src="pics/3.png" alt="image-20201024112213381" style="zoom:47%;" />
 
 *Fig.8.1.3:   Matching[^4]*
 
@@ -56,7 +56,7 @@ The feature points extracted from the image have a wide range of uses, such as i
 
 See more information in  https://webdiis.unizar.es/~raulmur/orbslam/
 
-![image-20201025094341270](pics\4.png)
+![image-20201025094341270](pics/4.png)
 
 *Fig.8.1.4:   SLAM[^5]*
 
@@ -68,13 +68,13 @@ After understanding the basics of feature points in images, let us learn a featu
 
 Harris' general idea is derived from patch matching, which is the matching of small areas in the image. As shown below:
 
-![image-20200926110136599](pics\5.png)
+![image-20200926110136599](pics/5.png)
 
 *Fig.8.1.5:   Patch matching[^6]*
 
 In Line 1, we can easily see that one of the four green areas in (b) matches the red area in (a). However, for the green area in (d) in Line 2, it is difficult for us to judge which one is the matching area of (c) because their content is too similar. There is no recognition, that is, there is no apparent information, so the corner/junction area is selected when considering matching. As shown below:
 
-![image-20200926111759313](pics\6.png)
+![image-20200926111759313](pics/6.png)
 
 *Fig.8.1.6:   The explanation of corner*
 
@@ -127,13 +127,13 @@ I_{x} I_{y} & I_{y}^{2}
 
 Fig.8.1.7 reflects the relationship between the derivative and the area change. For the edge case, when we move in the x-axis direction, the intensity will change, because the color changes from black to grey and there is no change when moving in the y-axis direction, so the y-axis derivative is 0. For flat case, the color in this area does not change no matter how to move. Therefore, the derivatives of the intensity on the x-axis and the y-axis are both 0. For corner, whether it is moving on the x-axis or y-axis, the intensity will change, and there is an intersection. If the x and y axis derivatives of the intersection point are non-zero, then this point can be used as a feature point. Therefore, the characteristic point can be regarded as a position with a larger derivative in both directions.
 
-![image-20201025104854675](pics\7.png)
+![image-20201025104854675](pics/7.png)
 
 *Fig.8.1.7:   The relationship between derivative and area[^6]*
 
 But we don't need to judge the magnitude of the derivative of each axis every time. We can directly analyze the eigenvalues $\lambda_1, \lambda_2$ of the covariance matrix $M$. Both $\lambda_1$ and $\lambda_2$ are very large, indicating that the distribution in the two eigenvector directions is very scattered and uniform. So it can be judged like this:
 
-<img src="pics\8.png" alt="image-20201025105519793" style="zoom:47%;" />
+<img src="pics/8.png" alt="image-20201025105519793" style="zoom:47%;" />
 
 *Fig.8.1.8:   How to judge corner[^6]*
 
@@ -145,7 +145,7 @@ Therefore, we can determine the degree of size by setting the threshold $\lambda
 
 There are many types of response functions. $min(\lambda_1,\lambda_2)$ is one of them. Let us briefly list the commonly used response functions:
 
-<img src="pics\9.png" alt="image-20200927083609904" style="zoom: 39%;" />
+<img src="pics/9.png" alt="image-20200927083609904" style="zoom: 39%;" />
 
 *Fig.8.1.9:   Response function*
 
@@ -158,13 +158,13 @@ The following figure is the process diagram of Harris corner detection for two i
 - ③ is the extracted Harris corner point.
 - ④ is the extraction effect after NMS (see in Chapter7), because ③ got too many Harris corner points, so it is filtered and simplified by NMS.
 
-![image-20200926160543490](pics\11.png)
+![image-20200926160543490](pics/11.png)
 
 *Fig.8.1.10:   Harris in image (a)[^7]*
 
 Fig.8.1.11 is the effect of drawing the Harris corner point obtained in Fig.8.1.10 on the original image (red points):
 
-![image-20200926161022688](pics\10.png)
+![image-20200926161022688](pics/10.png)
 
 *Fig.8.1.11:   Harris in image (b)[^7]*
 
@@ -176,13 +176,13 @@ We mainly introduced the detection and extraction for Harris in the image in sec
 
 - Registration: The traditional method ICP can also be used for registration. However, it needs a relatively good solution: rotation matrix $R$ and translation vector $T$. Besides, the high overlap rate between two point clouds is also very crucial;
 
-  ![image-20200927085255033](pics\12.png)
+  ![image-20200927085255033](pics/12.png)
 
   *Fig.8.2.1:   Registration[^8]*
 
 - Pose estimation: Given a model, how to estimate the location and pose through feature;
 
-  ![image-20200927090028527](pics\13.png)
+  ![image-20200927090028527](pics/13.png)
 
   *Fig.8.2.2:   Pose estimation[^9]*
 
@@ -190,7 +190,7 @@ We mainly introduced the detection and extraction for Harris in the image in sec
 
 - 通过拍摄得到人的表情 —— 特征点，转移到三维数字人上，驱动三维数字人。应用在各大直播平台，短视频。点击链接感受 https://youtu.be/xMgoypPBEgw
 
-  <img src="pics\14.png" alt="image-20200927112233541" style="zoom:47%;" />
+  <img src="pics/14.png" alt="image-20200927112233541" style="zoom:47%;" />
 
 *Fig.8.2.3:   Digital human drive[^10]*
 
@@ -281,7 +281,7 @@ $$
 
 Because the point cloud often contains some noise points, if we use $\mathbf{e}$ directly, the direction of the feature vector may be affected by the noise points and deviate. The blue arrow in the following figure represents $\mathbf{e}$, and the green arrow represents the direction after projection. It can be seen that the blue arrow is affected by the noise point on the upper right.
 
-<img src="pics\15.png" alt="image-20201026095030517" style="zoom:66%;" />
+<img src="pics/15.png" alt="image-20201026095030517" style="zoom:66%;" />
 
 *Fig.8.2.4:   projection*
 
@@ -360,7 +360,7 @@ Make $\lambda_i^1>\lambda_i^2>\lambda_i^3$ to exclude planes and lines (because 
 
 Now make comparisons among Harris 2D, Harris 3D with intensity, Harris 3D without intensity, Harris 6D, and ISS.
 
-![image-20201026102334690](pics\16.png)
+![image-20201026102334690](pics/16.png)
 
 *Fig.8.2.5:   Comparisons among different feature*
 
@@ -376,13 +376,13 @@ Next, we will introduce an algorithm for feature point manipulation using deep l
 
 USIP (Unsupervised Stable Interest Point) is an unsupervised learning algorithm. The red points in Fig.8.2.6 are the results of USIP:
 
-![image-20200927143258553](pics\17.png)
+![image-20200927143258553](pics/17.png)
 
 *Fig.8.2.6:   USIP detection[^11]*
 
 Fig.8.2.7 is the result of description and matching of feature points by USIP:
 
-![image-20200927143618827](pics\18.png)
+![image-20200927143618827](pics/18.png)
 
 *Fig.8.2.7:   Description and matching[^11]*
 
@@ -393,7 +393,7 @@ USIP is an unsupervised learning algorithm, so which point is a feature point is
 
 The process of USIP is as following:
 
-![image-20200927144531220](pics\19.png)
+![image-20200927144531220](pics/19.png)
 
 *Fig.8.2.8:   USIP[^11]*
 
@@ -419,7 +419,7 @@ SHOT (Signature of Histograms of OrienTations), to capture the information of th
 
 ***step2*:** After obtaining the LRF, divide the regional space of this LRF (the feature points and their neighborhoods, not the entire point cloud) into small volumes, as shown in the figure below, according to the latitude, longitude and radius direction:
 
-<img src="pics\20.png" alt="image-20201026105404920" style="zoom:47%;" />
+<img src="pics/20.png" alt="image-20201026105404920" style="zoom:47%;" />
 
 *Fig.8.2.9:   LRF and SHOT structure of division[^12]*
 
@@ -441,7 +441,7 @@ There are four deep learning methods we will introduce: 3DMatch, The Perfect Mat
 
 The structure of 3DMAatch is:
 
-![image-20200927170603579](pics\21.png)
+![image-20200927170603579](pics/21.png)
 
 *Fig.8.2.10:   3DMatch[^13]*
 
@@ -470,7 +470,7 @@ Among them, $x_i$ and $x_j$ represent different patches. $f(x)$ is to process th
 
 Fig.8.2.11 is the visualization of the effect of 3DMatch, which realizes clustering of patches that match as positive, indicating that these feature descriptors are distinguishable:
 
-![image-20200927190701617](pics\22.png)
+![image-20200927190701617](pics/22.png)
 
 *Fig.8.2.11:   The effect of 3DMatch[^13]*
 
@@ -495,7 +495,7 @@ For the problem that the loss function is too strong, The Perfect Match uses a w
 
 The idea of Triplet Loss is that "Far" and "near" are relative, as long as the distance between anchor and positive is much greater than the distance between anchor and negative. It is not necessary that the former is infinitely close to 0 and the latter is close to $\tau$.
 
-<img src="pics\23.png" alt="image-20200927201120873" style="zoom:60%;" />
+<img src="pics/23.png" alt="image-20200927201120873" style="zoom:60%;" />
 
 *Fig.8.2.12:   Triplet Loss[^14]*
 $$
@@ -510,7 +510,7 @@ However, Triplet Loss also has its limitations:
 
 As shown in Fig.8.2.13:
 
-<img src="pics\24.png" alt="image-20200928080348685" style="zoom:36%;" />
+<img src="pics/24.png" alt="image-20200928080348685" style="zoom:36%;" />
 
 *Fig.8.2.13:   The problems in Triplet Loss[^15]*
 
@@ -522,7 +522,7 @@ Given this problem, ***Triplet Mining*** appeared. Find out which triples (ancho
 
 PPFNet (Point Pair Feature Network) is a feature description network based on PointNet.
 
-![image-20200928144939775](pics\25.png)
+![image-20200928144939775](pics/25.png)
 
 *Fig.8.2.14:   PPFNet[^16]*
 
@@ -532,7 +532,7 @@ Different from 3DMatch and The Perfect Match, the input of PPFNet is not every p
 
 In the patch input by PPFNet, not only the coordinates of the point cloud but also other information of the point cloud, such as normal, PFH... Because the richer the input of deep learning, the better the result will be accordingly. The composition of this information is introduced below, as shown below:
 
-<img src="pics\26.png" alt="image-20200928150615818" style="zoom:66%;" />
+<img src="pics/26.png" alt="image-20200928150615818" style="zoom:66%;" />
 
 *Fig.8.2.15:   PPFNet innovation[^16]*
 
@@ -553,7 +553,7 @@ The 3DMatch introduced earlier is a two-tuple (Anchor and Positive or Anchor and
 
 3DMatch and The Perfect Match only consider the information in one patch, while PPFNet considers the information of $n$ (hyper-parameters, artificially specified) patches in a frame. The comparison of the three ideas in the following figure, the red is pushed away, indicating different; Green is closer, indicating similarity. The problem in (a) and (b) is that it does not bring all the similar shapes closer, and (c) can do:
 
-![image-20200928153121898](pics\27.png)
+![image-20200928153121898](pics/27.png)
 
 *Fig.8.2.16:   Comparisons of the establishment of loss function[^16]*
 
@@ -580,7 +580,7 @@ $$
 
 The following figure is a schematic diagram of the PPFNet training process:
 
-![image-20200928155739736](pics\28.png)
+![image-20200928155739736](pics/28.png)
 
 
 
@@ -590,7 +590,7 @@ Among them, Ground Truth Poses is the $\mathbf T$ in step 1, the Correspondence 
 
 The figure below is a comparison chart of several different loss functions. Pair means Contrastive Loss, Triplet means Triplet Loss, and N-tuple means N-tuple Loss. Purple is negative and red is positive. It shows that N-tuple Loss distinguishes between positive and negative better: the positive distance is close to 0, and the negative distance is larger.
 
-![image-20200928160310489](pics\29.png)
+![image-20200928160310489](pics/29.png)
 
 *Fig.8.2.18:   Comparison of several loss functions[^16]*
 
@@ -598,7 +598,7 @@ The figure below is a comparison chart of several different loss functions. Pair
 
 The PPF-FoldNet framework is shown in Fig.8.2.19, the input is still a patch:
 
-![image-20200928161339539](pics\31.png)
+![image-20200928161339539](pics/31.png)
 
 *Fig.8.2.19:   PPF-FoldNet[^17]*
 
@@ -608,7 +608,7 @@ d(\mathbf{F}, \hat{\mathbf{F}})=\max \left\{\frac{1}{|\mathbf{F}|} \sum_{\mathbf
 $$
 Fig.8.2.20 is a comparison between the original feature visualization after T training, and it can be found that after 70 rounds of training, the reconstructed feature visualization is very close to Original PPF:
 
-![image-20200928164336608](pics\30.png)
+![image-20200928164336608](pics/30.png)
 
 *Fig.8.2.20:   Training rounds and visualization[^17]*
 
@@ -626,7 +626,7 @@ Common registration algorithms, such as ICP and NDT (Normal Distribution Transfo
 
 The feature-based registration introduced here is RANSAC (Random Sample Consensus) registration. Proceed as follows:
 
-![image-20200928195454679](pics\32.png)
+![image-20200928195454679](pics/32.png)
 
 *Fig.8.2.21:   Registration[^11]*
 
